@@ -1,0 +1,46 @@
+function imc() {
+    var pessoas = parseInt(prompt('Você deseja o IMC  de quantas pessoas? '))
+    var altura = 0
+    var peso = 0
+    var maiorimc = 0 
+    var imc = 0
+    var soma = 0
+    var imc2 = 0
+    var media = 0
+    
+    for (var i = 0; i < pessoas; i++)
+    {
+        altura = parseFloat(prompt(`Digite a altura da ${i+1}ª pessoa.`))
+        peso = parseFloat(prompt(`Digite o peso da ${i+1}ª pessoa.`))
+        imc = (peso / altura ** 2).toFixed(1)
+        
+        if (imc < 18.5) {
+            console.log('Abaixo do peso normal.')
+        } else if (imc >= 18.5 && imc < 25) {
+            console.log('Peso normal.')
+        } else if (imc >= 25 && imc < 30) {
+            console.log('Excesso de peso.')
+        } else if (imc >= 30 && imc < 35) {
+            console.log('Obesidade classe I.')
+        } else if (imc >= 35 && imc < 40) {
+            console.log('Obesidade classe II.')
+        } else if (imc >= 40) {
+            console.log('Obesidade classe III.')
+        }
+
+        soma += imc
+
+        if ( imc > imc2){
+            maiorimc = i
+        }
+        
+        imc2 = imc
+
+    }
+    media = (parseFloat(soma) / parseFloat(pessoas)).toFixed(1)
+    
+    console.log(`A quantidade de usuários coletados foram: ${pessoas}
+O usuário que apresentou o maior imc foi o ${maiorimc+1}º
+A média dos IMCs dos usuários foi: ${media}`)
+            
+}
